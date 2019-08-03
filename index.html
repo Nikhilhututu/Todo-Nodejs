@@ -46,7 +46,7 @@
             const todoUserInput = $("#todoUserInput");
 
             const getTodos = ()=>{
-                fetch('https://young-island-67652.herokuapp.com/getTodos',{method:'get'}).then((response)=>{
+                fetch('/getTodos',{method:'get'}).then((response)=>{
                     return response.json();
                 }).then((data)=>{
                     console.log(data);
@@ -61,7 +61,7 @@
             const editTodo = (todo,todoID,editID)=>{
                 let editBtn = $(`#${editID}`);
                 editBtn.click(()=>{
-                    fetch(`https://young-island-67652.herokuapp.com/${todo._id}`,{
+                    fetch(`/${todo._id}`,{
                         method:'put',
                         headers :{
                         'Content-Type' : 'application/json;charset = utf-8'
@@ -81,7 +81,7 @@
             const deleteTodo = (todo,listItemID,deleteID)=>{
                 let deleteBtn = $(`#${deleteID}`);
                 deleteBtn.click(()=>{
-                    fetch(`https://young-island-67652.herokuapp.com/${todo._id}`,{
+                    fetch(`/${todo._id}`,{
                         method:'delete'
                     }).then((response)=>{
                         return response.json();
@@ -125,7 +125,7 @@
             }
             form.submit((e)=>{
                 e.preventDefault()
-                fetch('https://young-island-67652.herokuapp.com/',{
+                fetch('/',{
                     method:'post',
                     body : JSON.stringify({todo : todoUserInput.val()}),
                     headers :{

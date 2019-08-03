@@ -68,6 +68,7 @@ app.put('/:id',(req,res)=>{
     })
 
  })
+const port = process.env.PORT || 3000
 db.connect((err)=>{
     if(err)
     {
@@ -76,9 +77,9 @@ db.connect((err)=>{
     }
     else
     {
-        app.listen(3000,()=>{
+        app.listen(port,()=>{
             console.log("Coonected to database with port 3000")
-        })
+       })
     }
  })
 
