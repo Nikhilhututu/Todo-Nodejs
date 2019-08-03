@@ -14,7 +14,10 @@ const connect  = (cb) =>{
      else
      MongoClient.connect(url,mongoOptions,(err,client)=>{
        if(err)
+       {
+         console.log("Unable to connect!!!!")
          cb(err)
+       }
         else
         {
           state.db = client.db(dbname)  
