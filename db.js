@@ -36,11 +36,15 @@ const connect  = (cb) =>{
     {
        if(error){
           cb(error)
-          return console.log('Unable to connect to database!'+"         "+error)    
+           console.log('Unable to connect to database!!!!  '+"         "+error)    
+        }
+        else
+        {
+          state.db = client.db(dbname)          // Start to interact with the database
+           cb()
+          console.log('Start to interact with the database')    
         } 
-        state.db = client.db(dbname)          // Start to interact with the database
-        cb()
-        console.log('Start to interact with the database')    
+        
     })
     
 }

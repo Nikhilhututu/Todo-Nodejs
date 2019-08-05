@@ -69,10 +69,10 @@ app.put('/:id',(req,res)=>{
 
  })
 const port = process.env.PORT || 3000
-db.connect((err)=>{
-    if(err)
+db.connect((error)=>{
+    if(error)
     {
-        console.log("unable to connect to database")
+        console.log("unable to connect to database"+"     "+error)
         process.exit(1)
     }
     else
