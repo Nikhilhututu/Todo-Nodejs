@@ -1,9 +1,12 @@
+//dc9d6f62-ae64-4edc-8f46-33fac02e9d45 privae Key
+
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
 const dbname = "test"//
-const url = 'mongodb+srv://nik87_jain2017:Nikhil%40Mlab123@cluster0-blywg.mongodb.net/test?retryWrites=true&w=majority'
-// const url = 'mongodb://127.0.0.1:27017' 
 
+const url = ' mongodb+srv://nik87_jain2017:X46UNsozTPCE4y4F@mangocluster-e9bhj.mongodb.net/test?retryWrites=true&w=majority'
+
+// const url = 'mongodb://127.0.0.1:27017' 
 // client.connect(err => {
 //   const collection = client.db("test").collection("devices");
 //   // perform actions on the collection object
