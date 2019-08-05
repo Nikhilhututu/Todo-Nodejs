@@ -4,7 +4,6 @@ const dbname = "test"//
 const url = 'mongodb+srv://nik87_jain2017:Nikhil%40Mlab123@cluster0-blywg.mongodb.net/test?retryWrites=true&w=majority'
 // const url = 'mongodb://127.0.0.1:27017' 
 
-// const client = new MongoClient(uri, { useNewUrlParser: true });
 // client.connect(err => {
 //   const collection = client.db("test").collection("devices");
 //   // perform actions on the collection object
@@ -17,22 +16,33 @@ const state ={
     db :null
 }
 const connect  = (cb) =>{
-    if(state.db)
-     cb()
-     else
-     MongoClient.connect(url,mongoOptions,(err,client)=>{
-       if(err)
-       {
-         console.log("Unable to connect!!!!")
-         cb(err)
-       }
-        else
-        {
-          state.db = client.db(dbname)  
-          cb()
-        }
+    // if(state.db)
+    //  cb()
+    //  else
+    //  MongoClient.connect(url,mongoOptions,(err,client)=>{
+    //    if(err)
+    //    {
+    //      console.log("Unable to connect!!!!")
+    //      cb(err)
+    //    }
+    //     else
+    //     {
+    //       state.db = client.db(dbname)  
+    //       cb()
+    //     }
 
-     })
+    //  })
+    MongoClient.connect(url, { useNewUrlParser: true }, (error, client) =>
+    {
+       if(error){
+          cb(err)
+          return console.log('Unable to connect to database!')    
+        } 
+        state.db = client.db(dbname)          // Start to interact with the database
+        cb()
+        console.log('Start to interact with the database')    
+    })
+    
 }
 const getPrimaryKey =(_id)=>{
 
