@@ -35,8 +35,8 @@ const connect  = (cb) =>{
     MongoClient.connect(url, { useNewUrlParser: true }, (error, client) =>
     {
        if(error){
-          cb(err)
-          return console.log('Unable to connect to database!')    
+          cb(error)
+          return console.log('Unable to connect to database!'+"         "+error)    
         } 
         state.db = client.db(dbname)          // Start to interact with the database
         cb()
