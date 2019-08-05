@@ -1,9 +1,16 @@
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-const dbname = "myDataBase"//
-
-// const url = 'mongodb://127.0.0.1:27017' 
+const dbname = "test"//
 const url = 'mongodb+srv://nik87_jain2017:Nikhil%40Mlab123@cluster0-blywg.mongodb.net/test?retryWrites=true&w=majority'
+// const url = 'mongodb://127.0.0.1:27017' 
+
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
 const mongoOptions  = {useNewUrlParser: true}
 
 const state ={
