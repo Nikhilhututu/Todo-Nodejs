@@ -1,8 +1,9 @@
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-const dbname = "myDataBase"
-// const url = "mongodb://localhost:27017"
-const url = 'mongodb://127.0.0.1:27017' 
+const dbname = "MangoDbTest"//myDataBase
+
+// const url = 'mongodb://127.0.0.1:27017' 
+const url = 'mongodb://182.77.71.14/32'
 const mongoOptions  = {useNewUrlParser: true}
 
 const state ={
