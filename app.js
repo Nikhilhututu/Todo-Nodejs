@@ -1,22 +1,20 @@
 const express = require('express')
 const bodyparser = require('body-parser')
 const app = express()
-app.use(bodyparser.json())
 const path = require('path')
 const db = require('./db')
 const collection = 'todo'
+app.use(bodyparser.json())
 // const Joi = require('joi')
-
 // const schema = Joi.object().keys({
-
-//     todo :Joi.string().required()
+// todo :Joi.string().required()
 // })
+app.use('/users', require('./user'));
 
 
 app.get('/',(req,res)=>{
     res.sendFile(path.join( __dirname,'index.html'))
 })
-
 //read
 app.get('/getTodos',(req,res)=>{
     db.getDB().collection(collection).find({}).toArray((err,documents)=>{
@@ -45,7 +43,7 @@ app.put('/:id',(req,res)=>{
 
     const todoID = req.params.id;
     const userInput = req.body;
-//     db.getDB().collection(collection).findOneAndUpdate({_id :db.getPrimaryKey(todoID)},{$set:{todo: userInput.todo}},{returnOrignal : false},(err,result)=>{
+//   db.getDB().collection(collection).findOneAndUpdate({_id :db.getPrimaryKey(todoID)},{$set:{todo: userInput.todo}},{returnOrignal : false},(err,result)=>{
      db.getDB().collection(collection).findOneAndUpdate({_id : db.getPrimaryKey(todoID)},{$set : {todo : userInput.todo}},{returnOriginal : false},(err,result)=>{
         if(err)
             console.log(err)
@@ -80,7 +78,10 @@ db.connect((error)=>{
         app.listen(port,()=>{
             console.log("Coonected to database with port 3000")
        })
+    
     }
  })
+
+ 
 
 //  how to use mongodb with node js
